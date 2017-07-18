@@ -6,14 +6,7 @@
 
       const db = this;
       db.postEntriesFromDatabase = [];
-      db.commentEntriesFromDatabase = [];
 
-      db.getComments = function(postID) {
-        return $http.get(`/api/posts/${postID}/comments`).then(function(response) {
-          console.log(response);
-          db.commentEntriesFromDatabase = response.data;
-        })
-      }
 
       db.getPosts = function() {
         return $http.get('/api/posts').then(function(response) {
@@ -27,18 +20,6 @@
         })
       }
 
-      db.postEdit = function(postID, updatedInfo) {
-        $http.patch(`api/posts/${postID}`, updatedInfo).then(function(response) {
-          db.postEntriesFromDatabase.push(response.data);
-        })
-      }
-
-      db.addComments = function(postID, commentContent) {
-        return $http.post(`/api/posts/${postID}/comments`, commentContent).then(function(response) {
-              db.commentEntriesFromDatabase.push(response.data);
-              return;
-        })
-      }
 
       db.voteUp = function(postID) {
         $http.post(`/api/posts/${postID}/votes`).then(function(response) {

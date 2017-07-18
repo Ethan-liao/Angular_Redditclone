@@ -6,32 +6,31 @@
       bindings: {
         postsid: '<',
       },
-      controller: postController,
+      controller: commentController,
       templateUrl: '/view/comment.html'
     })
 
-  postController.$inject = ['crudService'];
+  commentController.$inject = ['commentsService'];
 
-  function postController(crudService) {
+  function commentController(commentsService) {
     const vm = this;
     vm.comments = [];
     vm.comment = {};
 
 
     vm.$onInit = function() {
-      crudService.getComments(vm.postsid).then(function() {
-        vm.comments = crudService.commentEntriesFromDatabase
+      commentsService.getComments(vm.postsid).then(function() {
+        vm.comments = commentsService.commentEntriesFromDatabase
       });
     }
 
     vm.addcomment = function() {
       console.log(vm.postsid);
       console.log(vm.comment);
-      crudService.addComments(vm.postsid, vm.comment).then(function(){
-        vm.comment=[];
+      commentsService.addComments(vm.postsid, vm.comment).then(function() {
+        vm.comment = [];
       });
     };
-
     // ending controller
   }
 }());
