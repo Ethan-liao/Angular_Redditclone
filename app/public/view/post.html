@@ -10,10 +10,10 @@
         <h4 class="media-heading">
           {{$ctrl.postfrommain.title}}
         |
-        <a ng-click='$ctrl.upVote(post)'><i class="glyphicon glyphicon-arrow-up"></i></a>
-        <a ng-click='$ctrl.downVote(post)'><i class="glyphicon glyphicon-arrow-down"></i></a>
+        <a ng-click='$ctrl.upVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-up"></i></a>
+        <a ng-click='$ctrl.downVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-down"></i></a>
         {{$ctrl.postfrommain.vote_count}}
-        <button type="button" form="showform" ng-click="$ctrl.editPost(post)"; name="button">Edit</button>
+        <button type="button" formshow='false'  name="button">Edit</button>
       </h4>
 
         <div class="text-right">
@@ -30,7 +30,7 @@
         </a>
         </div>
 
-        <comment ng-if='showComment' postsid ="post.id"></comment>
+        <comment ng-if='showComment' postsid ="$ctrl.postfrommain.id"></comment>
 
       </div>
     </div>

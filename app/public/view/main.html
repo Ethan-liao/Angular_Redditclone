@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -19,7 +18,7 @@
 <main class="container">
 
   <div class="pull-right">
-    <p><a ng-click = '$ctrl.showform=!$ctrl.showform' class="btn btn-info">
+    <p><a ng-click='$ctrl.showform=!$ctrl.showform' class="btn btn-info">
       {{$ctrl.showform ? "Cancel": "New Post"}}
     </a></p>
 
@@ -39,50 +38,15 @@
     </div>
   </ul>
 
-<!-- new post  -->
-<div  ng-if='$ctrl.showform' class="row">
-  <div class="col-md-8">
-    <form name="myForm" novalidate>
-      <div ng-class="{'has-error' : myForm.title.$invalid && myForm.title.$touched}">
-        <div>
-        <label for="title">Title</label>
-        <input name='title' ng-model='$ctrl.post.title'id="title" class="form-control" ng-minlength=3 ng-maxlength=20 required>
-        </div>
-      </div>
-      <div ng-class="{'has-error' : myForm.body.$invalid && myForm.body.$touched}">
-      <div>
-        <label for="body">Body</label>
-        <textarea name='body' ng-model='$ctrl.post.body' id="body" class="form-control" required></textarea>
-      </div>
-      </div>
-      <div ng-class="{'has-error' : myForm.author.$invalid && myForm.author.$touched}">
-      <div>
-        <label for="author">Author</label>
-        <input name='author' ng-model='$ctrl.post.author' id="author" class="form-control" required>
-      </div>
-      </div>
-        <div ng-class="{'has-error' : myForm.imageUrl.$invalid && myForm.image_url.$touched}">
-      <div>
-        <label for="image-url">Image URL</label>
-        <input name='imageUrl' ng-model='$ctrl.post.image_url' id="image-url" class="form-control" required>
-      </div>
-      </div>
-
-      <div class="form-group">
-        <button ng-if='$ctrl.showFormButton' ng-click='$ctrl.addPost()'type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid">
-          Create Post
-        </button>
-        <button ng-if='$ctrl.editButton' ng-click= '$ctrl.submitPostChanges($ctrl.postId)' type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid">
-          Submit changes
-        </button>
-      </div>
-    </form>
+  <!-- Form component -->
+  <div ng-if='$ctrl.showform'>
+    <formcomponent></formcomponent>
   </div>
-</div>
 
-<div ng-repeat='post in $ctrl.postings | orderBy:$ctrl.orderData |filter:searchdata'>
-  <!-- posts form -->
-  <post postfrommain='post'></post>
-  <!-- form -->
-</div>
-  </main>
+
+  <div ng-repeat='post in $ctrl.postings | orderBy:$ctrl.orderData |filter:searchdata'>
+    <!-- posts form -->
+    <post postfrommain='post'></post>
+    <!-- form -->
+  </div>
+</main>

@@ -1,10 +1,10 @@
 (function() {
   'use strict'
 
-  angular.module('app', ['angularMoment'])
+  angular.module('app', ['angularMoment','ui.router'])
     .component('mainpage', {
       bindings:{
-        form:'<'
+        formshow:'<'
       },
       controller: postController,
       templateUrl: '/view/main.html'
@@ -15,7 +15,6 @@
   function postController(crudService) {
     const vm = this;
     vm.postings = [];
-    // vm.post = {};
 
 
     vm.$onInit = function() {
@@ -23,23 +22,19 @@
         vm.postings = crudService.postEntriesFromDatabase;
       });
       vm.showFormButton = true;
-      vm.form = false;
     }
 
 
-    vm.addPost = function() {
-      crudService.addPost(vm.post);
-      vm.showform = false;
-      vm.editButton = false;
-      vm.post = {};
+
+    vm.testForm = function(boolean){
+      console.log(boolean);
     }
-
-
 
     vm.submitPostChanges = function(postID, postinfo) {
       vm.editButton = false;
       vm.showform = false;
       crudService.postEdit(postID, vm.post);
+      // ng-click="$ctrl.editPost($ctrl.postfrommain)";
     }
 
 

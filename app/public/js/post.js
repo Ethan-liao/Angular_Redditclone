@@ -15,12 +15,10 @@
   function postController(crudService) {
     const vm = this;
     vm.postings = [];
-    // vm.post = {};
+    
 
     vm.$onInit = function() {
-      // crudService.getPosts().then(function() {
-      //   vm.postings = crudService.postEntriesFromDatabase;
-      // });
+
       vm.postings = vm.post
       vm.showFormButton = true;
       vm.showform = false;

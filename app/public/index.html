@@ -2,6 +2,7 @@
 <html ng-app='app'>
 
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <title>Reddit Clone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,10 +12,13 @@
   <script src="/js/main.js"></script>
   <script src="/js/post.js"></script>
   <script src="/js/comment.js"></script>
+  <script src="/js/form.js"></script>
   <script src="/js/postService.js"></script>
   <script src="/js/commentService.js"></script>
   <script src="moment.js"></script>
   <script src="angular-moment.js"></script>
+  <!-- <script src="app.states.js"></script> -->
+  <script src="https://unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
   <!-- <script src="/js/comment.js"></script> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -30,6 +34,8 @@
 </head>
 
 <body>
+
+  <ui-view></ui-view>
 
   <mainpage></mainpage>
 
