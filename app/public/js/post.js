@@ -15,24 +15,18 @@
   function postController(crudService) {
     const vm = this;
     vm.postings = [];
-    
+
 
     vm.$onInit = function() {
-
       vm.postings = vm.post
       vm.showFormButton = true;
       vm.showform = false;
     }
 
     vm.editPost = function(post) {
-      vm.showform = true;
-      vm.showFormButton = false;
-      vm.editButton = true;
-      vm.post.title = post.title;
-      vm.post.body = post.body;
-      vm.post.author = post.author;
-      vm.post.image_url = post.image_url;
-      vm.postId = post.id
+      vm.showFormButton = !post;
+      vm.editButton = post;
+
     }
 
 

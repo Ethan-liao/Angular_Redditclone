@@ -1,7 +1,7 @@
 (function() {
   'use strict'
 
-  angular.module('app', ['angularMoment','ui.router'])
+  angular.module('app', ['angularMoment'])
     .component('mainpage', {
       bindings:{
         formshow:'<'
@@ -23,21 +23,6 @@
       });
       vm.showFormButton = true;
     }
-
-
-
-    vm.testForm = function(boolean){
-      console.log(boolean);
-    }
-
-    vm.submitPostChanges = function(postID, postinfo) {
-      vm.editButton = false;
-      vm.showform = false;
-      crudService.postEdit(postID, vm.post);
-      // ng-click="$ctrl.editPost($ctrl.postfrommain)";
-    }
-
-
 
     // ending controller
   }

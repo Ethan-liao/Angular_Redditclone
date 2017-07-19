@@ -20,6 +20,11 @@
         })
       }
 
+      db.postEdit = function(postID, updatedInfo) {
+        $http.patch(`api/posts/${postID}`, updatedInfo).then(function(response) {
+          db.postEntriesFromDatabase.push(response.data);
+        })
+      }
 
       db.voteUp = function(postID) {
         $http.post(`/api/posts/${postID}/votes`).then(function(response) {

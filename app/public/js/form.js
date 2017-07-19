@@ -4,7 +4,8 @@
   angular.module('app', )
     .component('formcomponent', {
       bindings: {
-        formbinding: '<'
+        posttoform: '<',
+        booleanbinding:'<'
       },
       controller: postController,
       templateUrl: '/view/form.html'
@@ -16,8 +17,9 @@
     vm.post = {};
 
     vm.$onInit = function() {
-      vm.showFormButton = true;
       vm.showform = true;
+      vm.showFormButton = !vm.booleanbinding;
+      vm.editButton = vm.booleanbinding;
     }
 
     vm.addPost = function() {
@@ -27,6 +29,12 @@
       vm.post = {};
     }
 
+    vm.submitPostChanges = function(postID, postinfo) {
+      vm.editButton = false;
+      vm.showform = false;
+      crudService.postEdit(postID, vm.post);
+
+    }
 
   }
 }());

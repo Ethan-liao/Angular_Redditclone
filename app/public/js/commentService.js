@@ -7,7 +7,7 @@
       const db = this;
       db.commentEntriesFromDatabase = [];
 
-      db.getComments = function(postID) {        
+      db.getComments = function(postID) {
         return $http.get(`/api/posts/${postID}/comments`).then(function(response) {
           console.log(response);
           db.commentEntriesFromDatabase = response.data;
@@ -21,11 +21,6 @@
         })
       }
 
-      db.postEdit = function(postID, updatedInfo) {
-        $http.patch(`api/posts/${postID}`, updatedInfo).then(function(response) {
-          db.postEntriesFromDatabase.push(response.data);
-        })
-      }
 
     }]);
 }());

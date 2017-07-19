@@ -13,7 +13,7 @@
         <a ng-click='$ctrl.upVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-up"></i></a>
         <a ng-click='$ctrl.downVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-down"></i></a>
         {{$ctrl.postfrommain.vote_count}}
-        <button type="button" formshow='false'  name="button">Edit</button>
+        <button type="button" ng-click="$ctrl.editPost('true');$ctrl.showform=!$ctrl.showform"; name="button">Edit</button>
       </h4>
 
         <div class="text-right">
@@ -32,6 +32,9 @@
 
         <comment ng-if='showComment' postsid ="$ctrl.postfrommain.id"></comment>
 
+      </div>
+      <div ng-if='$ctrl.showform'>
+        <formcomponent booleanbinding='true' posttoform='$ctrl.postfrommain'></formcomponent>
       </div>
     </div>
 

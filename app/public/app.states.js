@@ -16,6 +16,12 @@ function config($stateProvider, $locationProvider){
         url: '/',
         component: 'app',
       })
+      .state({
+        name: 'edit',
+        url: '/posts/:id/edit',
+        component: 'app',
+      })
+
   }
 
 }())
