@@ -1,4 +1,4 @@
-<div  class="row">
+`<div  class="row">
   <div class="col-md-12">
 
     <div class="well">
@@ -13,9 +13,10 @@
         <a ng-click='$ctrl.upVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-up"></i></a>
         <a ng-click='$ctrl.downVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-down"></i></a>
         {{$ctrl.postfrommain.vote_count}}
-        <button type="button" ng-click="$ctrl.editPost('true');$ctrl.showform=!$ctrl.showform"; name="button">Edit</button>
+        <button type="button" ui-sref="edit({id:$ctrl.postfrommain.id, data:$ctrl.postfrommain,clickEdit:true})"  name="button">Edit</button>
       </h4>
-
+      <!-- posttoform='$ctrl.postfrommain' -->
+<!-- ng-click="$ctrl.editPost('true');$ctrl.showform=!$ctrl.showform" -->
         <div class="text-right">
         {{$ctrl.postfrommain.author}}
         </div>
@@ -34,7 +35,7 @@
 
       </div>
       <div ng-if='$ctrl.showform'>
-        <formcomponent booleanbinding='true' posttoform='$ctrl.postfrommain'></formcomponent>
+        <formcomponent></formcomponent>
       </div>
     </div>
 

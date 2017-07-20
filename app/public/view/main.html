@@ -18,7 +18,8 @@
 <main class="container">
 
   <div class="pull-right">
-    <p><a ng-click='$ctrl.showform=!$ctrl.showform' class="btn btn-info">
+
+    <p><a ui-sref="addPost({clickNewPost:true})" ng-click='$ctrl.showform=!$ctrl.showform' class="btn btn-info">
       {{$ctrl.showform ? "Cancel": "New Post"}}
     </a></p>
 
@@ -39,9 +40,10 @@
   </ul>
 
   <!-- Form component -->
-  <div ng-if='$ctrl.showform'>
+
+  <!-- <div ng-if='$ctrl.showform'>
     <formcomponent></formcomponent>
-  </div>
+  </div> -->
 
 
   <div ng-repeat='post in $ctrl.postings | orderBy:$ctrl.orderData |filter:searchdata'>

@@ -3,25 +3,36 @@
 
 angular.module('app').config(config)
 
-config.$inject = ['$stateProvider', '$locationProvider']
+config.$inject = ['$stateProvider','$urlRouterProvider', '$locationProvider']
 
-function config($stateProvider, $locationProvider){
+function config($stateProvider, $urlRouterProvider, $locationProvider){
 
     // this line is optional
     $locationProvider.html5Mode(true)
 
     $stateProvider
       .state({
-        name: 'home',
+        name: 'mainpage',
         url: '/',
-        component: 'app',
+        component: 'mainpage',
       })
       .state({
         name: 'edit',
         url: '/posts/:id/edit',
-        component: 'app',
+        component: 'formcomponent',
+        params:{
+          data:{},
+          clickEdit:{},
+        }
       })
-
+      .state({
+        name: 'addPost',
+        url: '/posts/add',
+        component: 'formcomponent',
+        params:{
+          clickNewPost:{},
+        }
+      })
   }
 
 }())

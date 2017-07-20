@@ -1,7 +1,7 @@
 (function() {
   'use strict'
 
-  angular.module('app', ['angularMoment'])
+  angular.module('app', ['angularMoment','ui.router'])
     .component('mainpage', {
       bindings:{
         formshow:'<'
