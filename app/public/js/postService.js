@@ -26,15 +26,13 @@
 
       db.postDelete = function(postID) {
         $http.delete(`api/posts/${postID}`).then(function(response) {
-        for (var i = 0; i < db.postEntriesFromDatabase.length; i++) {
-          if(db.postEntriesFromDatabase[i].id===postID){
-            // console.log(db.postEntriesFromDatabase.indexOf(db.postEntriesFromDatabase[i]));
-          return db.postEntriesFromDatabase.splice(getIndex(db.postEntriesFromDatabase[i]),1);
+          for (var i = 0; i < db.postEntriesFromDatabase.length; i++) {
+            if (db.postEntriesFromDatabase[i].id === postID) {
+              return db.postEntriesFromDatabase.splice(getIndex(db.postEntriesFromDatabase[i]), 1);
+            }
           }
-        }
-        // db.postEntriesFromDatabase = response
-      })
-    }
+        })
+      }
 
       db.postEdit = function(postID, updatedInfo) {
         $http.patch(`api/posts/${postID}`, updatedInfo).then(function(response) {

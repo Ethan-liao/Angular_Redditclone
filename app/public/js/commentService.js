@@ -9,18 +9,17 @@
 
       db.getComments = function(postID) {
         return $http.get(`/api/posts/${postID}/comments`).then(function(response) {
-          console.log(response);
           db.commentEntriesFromDatabase = response.data;
         })
       }
 
       db.addComments = function(postID, commentContent) {
         return $http.post(`/api/posts/${postID}/comments`, commentContent).then(function(response) {
-              db.commentEntriesFromDatabase.push(response.data);
-              return;
+          db.commentEntriesFromDatabase.push(response.data);
+          return;
         })
       }
-
-
+      // Ending service
     }]);
+    // Ending Iffe
 }());

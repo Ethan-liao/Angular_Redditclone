@@ -19,7 +19,7 @@
     vm.$onInit = function() {
       vm.showform = true;
       if ($stateParams.clickEdit) {
-        vm.posttoform = $stateParams.data;
+        vm.post = $stateParams.data;
         vm.editButton = true;
         vm.showFormButton = false;
       }
@@ -40,6 +40,6 @@
       crudService.postEdit(postID, vm.post);
       $state.go('mainpage');
     }
-
   }
+  // ending Iffe
 }());

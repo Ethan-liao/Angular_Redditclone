@@ -3,19 +3,18 @@
 
   angular.module('app')
     .component('post', {
-      bindings:{
-        postfrommain:'<'
+      bindings: {
+        postfrommain: '<'
       },
       controller: postController,
       templateUrl: '/view/post.html'
     })
 
-  postController.$inject = ['crudService','$stateParams', '$state'];
+  postController.$inject = ['crudService', '$stateParams', '$state'];
 
   function postController(crudService, $stateParams, $state) {
     const vm = this;
     vm.postings = [];
-
 
     vm.$onInit = function() {
       vm.showFormButton = true;
@@ -27,9 +26,8 @@
       vm.editButton = post;
     }
 
-    vm.deletePost = function(postID){
+    vm.deletePost = function(postID) {
       crudService.postDelete(postID);
-      // $state.go('mainpage');
     }
 
     vm.upVote = function(currentPost) {
@@ -42,5 +40,5 @@
       }
     }
   }
-
+  // ending Iffe
 }());
