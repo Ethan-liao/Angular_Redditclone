@@ -3,7 +3,7 @@
 
   angular.module('app', ['angularMoment','ui.router'])
     .component('mainpage', {
-      bindings:{
+      bindings: {
         formshow:'<'
       },
       controller: postController,
@@ -16,14 +16,13 @@
     const vm = this;
     vm.postings = [];
 
-
     vm.$onInit = function() {
       crudService.getPosts().then(function() {
         vm.postings = crudService.postEntriesFromDatabase;
       });
       vm.showFormButton = true;
     }
-
     // ending controller
   }
+  // ending Iffe
 }());

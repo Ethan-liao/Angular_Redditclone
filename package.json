@@ -2,12 +2,11 @@
   "name": "angular-drill",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.0.0"
+  },
   "scripts": {
-    "postinstall": "webdriver-manager update && sh ./setup.sh",
-    "test-e2e": "NODE_ENV=test protractor test/e2e/conf.js",
-    "test-server": "NODE_ENV=test mocha test/server",
-    "test": "npm run test-server; npm run test-e2e",
-    "start": "gulp"
+    "start": "node ./app/bin/www"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +14,7 @@
   "devDependencies": {
     "angular-mocks": "^1.5.6",
     "body-parser": "~1.15.2",
-    "browser-sync": "^2.18.5",
+    "browser-sync": "^2.18.13",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "chai-http": "^3.0.0",
@@ -33,7 +32,7 @@
     "protractor": "latest",
     "protractor-jasmine2-screenshot-reporter": "latest",
     "sinon": "^1.17.4",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.12.0"
   },
   "dependencies": {
     "angular": "^1.6.0",
@@ -44,6 +43,7 @@
     "jquery": "^3.1.1",
     "knex": "^0.12.6",
     "moment": "^2.18.1",
+    "node": "0.0.0",
     "pg": "^6.1.2"
   }
 }

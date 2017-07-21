@@ -39,13 +39,6 @@
     </div>
   </ul>
 
-  <!-- Form component -->
-
-  <!-- <div ng-if='$ctrl.showform'>
-    <formcomponent></formcomponent>
-  </div> -->
-
-
   <div ng-repeat='post in $ctrl.postings | orderBy:$ctrl.orderData |filter:searchdata'>
     <!-- posts form -->
     <post postfrommain='post'></post>
