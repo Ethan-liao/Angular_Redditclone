@@ -5,28 +5,25 @@
     .component('formcomponent', {
       bindings: {
         posttoform: '<',
-        // booleanbinding:'<'
       },
       controller: postController,
       templateUrl: '/view/form.html'
     })
 
-  postController.$inject = ['crudService','$stateParams','$state'];
+  postController.$inject = ['crudService', '$stateParams', '$state'];
 
-  function postController(crudService,$stateParams, $state) {
+  function postController(crudService, $stateParams, $state) {
     const vm = this;
     vm.post = {};
 
     vm.$onInit = function() {
       vm.showform = true;
-      if($stateParams.clickEdit){
+      if ($stateParams.clickEdit) {
         vm.posttoform = $stateParams.data;
         vm.editButton = true;
-        vm.showFormButton= false;
+        vm.showFormButton = false;
       }
-      vm.showFormButton= $stateParams.clickNewPost;
-      // vm.showFormButton = !vm.booleanbinding;
-      // vm.editButton = vm.booleanbinding;
+      vm.showFormButton = $stateParams.clickNewPost;
     }
 
     vm.addPost = function() {
@@ -37,7 +34,7 @@
       $state.go('mainpage');
     }
 
-    vm.submitPostChanges = function(postID, postinfo) {
+    vm.submitPostChanges = function(postID) {
       vm.editButton = false;
       vm.showform = false;
       crudService.postEdit(postID, vm.post);

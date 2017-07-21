@@ -1,4 +1,4 @@
-`<div  class="row">
+<div  class="row">
   <div class="col-md-12">
 
     <div class="well">
@@ -13,7 +13,8 @@
         <a ng-click='$ctrl.upVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-up"></i></a>
         <a ng-click='$ctrl.downVote($ctrl.postfrommain)'><i class="glyphicon glyphicon-arrow-down"></i></a>
         {{$ctrl.postfrommain.vote_count}}
-        <button type="button" ui-sref="edit({id:$ctrl.postfrommain.id, data:$ctrl.postfrommain,clickEdit:true})"  name="button">Edit</button>
+        <a ui-sref="edit({id:$ctrl.postfrommain.id, data:$ctrl.postfrommain,clickEdit:true})"  name="button" class="btn btn-primary btn-xs">Edit</a>
+        <a ng-click = '$ctrl.deletePost($ctrl.postfrommain.id)'  name="button" class="btn btn-primary btn-xs text-danger">Delete</a>
       </h4>
         <div class="text-right">
         {{$ctrl.postfrommain.author}}
@@ -24,7 +25,7 @@
         <div>
         <span am-time-ago="$ctrl.postfrommain.created_at"></span>
           <i class="glyphicon glyphicon-comment"></i>
-          <a ng-click='showComment=!showComment' >
+          <a ng-click='showComment=!showComment'>
           {{$ctrl.postfrommain.comments.length}} comments
         </a>
         </div>

@@ -6,7 +6,7 @@
     "node": "8.0.0"
   },
   "scripts": {
-    "start": "node ./app/bin/www"
+    "start": "gulp"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,7 @@
   "devDependencies": {
     "angular-mocks": "^1.5.6",
     "body-parser": "~1.15.2",
-    "browser-sync": "^2.18.5",
+    "browser-sync": "^2.18.13",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "chai-http": "^3.0.0",

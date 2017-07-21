@@ -16,13 +16,33 @@
 
       db.addPost = function(newPostData) {
         $http.post('api/posts', newPostData).then(function(response) {
-          db.postEntriesFromDatabase.push(response.data);
+          db.postEntriesFromDatabase.push(response.data)
         })
       }
 
+      function getIndex(object) {
+        return db.postEntriesFromDatabase.indexOf(object);
+      }
+
+      db.postDelete = function(postID) {
+        $http.delete(`api/posts/${postID}`).then(function(response) {
+        for (var i = 0; i < db.postEntriesFromDatabase.length; i++) {
+          if(db.postEntriesFromDatabase[i].id===postID){
+            // console.log(db.postEntriesFromDatabase.indexOf(db.postEntriesFromDatabase[i]));
+          return db.postEntriesFromDatabase.splice(getIndex(db.postEntriesFromDatabase[i]),1);
+          }
+        }
+        // db.postEntriesFromDatabase = response
+      })
+    }
+
       db.postEdit = function(postID, updatedInfo) {
         $http.patch(`api/posts/${postID}`, updatedInfo).then(function(response) {
-          db.postEntriesFromDatabase.push(response.data);
+          db.postEntriesFromDatabase.forEach(function() {
+            if (db.postEntriesFromDatabase.id === response.data.id) {
+              db.postEntriesFromDatabase = response.data;
+            }
+          })
         })
       }
 

@@ -10,15 +10,14 @@
       templateUrl: '/view/post.html'
     })
 
-  postController.$inject = ['crudService'];
+  postController.$inject = ['crudService','$stateParams', '$state'];
 
-  function postController(crudService) {
+  function postController(crudService, $stateParams, $state) {
     const vm = this;
     vm.postings = [];
 
 
     vm.$onInit = function() {
-      vm.postings = vm.post
       vm.showFormButton = true;
       vm.showform = false;
     }
@@ -26,9 +25,12 @@
     vm.editPost = function(post) {
       vm.showFormButton = !post;
       vm.editButton = post;
-
     }
 
+    vm.deletePost = function(postID){
+      crudService.postDelete(postID);
+      // $state.go('mainpage');
+    }
 
     vm.upVote = function(currentPost) {
       crudService.voteUp(currentPost.id)
