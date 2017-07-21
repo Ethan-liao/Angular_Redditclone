@@ -6,7 +6,7 @@
     "node": "8.0.0"
   },
   "scripts": {
-    "start": "gulp"
+    "start": "node ./app/bin/www"
   },
   "keywords": [],
   "author": "",
