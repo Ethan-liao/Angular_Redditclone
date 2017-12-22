@@ -4,11 +4,11 @@ To familiarize myself with Angular I built Reddit clone project with Angular. Th
 
 # Technologies Used
 
-Angular 1.6 - Front-end web framework
-Node.js - Server-side scripting
-Express - Framework for Node.js
-PostrgeSQL - Relational database
-Bootstrap - Used for styling
-Heroku - Deploying the application
+- Angular 1.6 - Front-end web framework
+- Node.js - Server-side scripting
+- Express - Framework for Node.js
+- PostrgeSQL - Relational database
+- Bootstrap - Used for styling
+- Heroku - Deploying the application
 
 Working model https://redditclone-prt2.herokuapp.com/
