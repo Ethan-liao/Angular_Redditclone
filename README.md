@@ -2,6 +2,11 @@
 
 Create an Angular application that allows users to CRUD data from a server.
 
+### Adding a post
+![reddiclone1](https://media.giphy.com/media/26wkCsKFKCYRNEkPC/giphy.gif)
+### Modifying & deleting a post 
+![redditclone2](https://media.giphy.com/media/l3dj4s6myYYiRtdrq/giphy.gif)
+
 ## Setup
 
 Run `yarn` and `npm start` to see the app locally.
