@@ -7,6 +7,8 @@ To familiarize myself with Angular I built Reddit clone project with Angular. Th
 ### Modifying & deleting a post 
 ![redditclone2](https://media.giphy.com/media/l3dj4s6myYYiRtdrq/giphy.gif)
 
+## Setup
+
 # Technologies Used
 
 - Angular 1.6 - Front-end web framework
